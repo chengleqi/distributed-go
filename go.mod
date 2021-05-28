@@ -1,3 +1,3 @@
-module github.com/chengleqi/distributed
+module github.com/chengleqi/distributed-go
 
 go 1.16
