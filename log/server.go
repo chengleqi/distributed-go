@@ -9,9 +9,9 @@ import (
 
 var log *stlog.Logger
 
-type filelog string
+type fileLog string
 
-func (fl filelog) Write(data []byte) (int, error) {
+func (fl fileLog) Write(data []byte) (int, error) {
 	file, err := os.OpenFile(string(fl), os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0600)
 	if err != nil {
 		return 0, err
@@ -21,7 +21,7 @@ func (fl filelog) Write(data []byte) (int, error) {
 }
 
 func Run(destination string) {
-	log = stlog.New(filelog(destination), "go", stlog.LstdFlags)
+	log = stlog.New(fileLog(destination), "go: ", stlog.LstdFlags)
 }
 
 func RegisterHandlers() {
